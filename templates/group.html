@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -11,16 +10,26 @@
 </head>
 
 <body>
-  {{$API := .}}
+  {{$Artists := .}}
   <div class="wrapper"></div>
   <div class="container">
     <a href="/" class="title">Groupie Trackers</a> <br> <br>
-    <form action="/" method="POST"><br>
-      {{range $i, $v := .Artists}} 
+    <p>It is working!</p>
+    <!-- <form action="/" method="POST"><br> -->
+      {{.ID}}
+      <br>
+      {{.Name}}
+      <!-- {{range .API.Artists}}
+      {{.Name}}
+      {{end}} -->
+      <!-- {{range .}}
+      <p>{{.index}}</p>
+      {{end}} -->
+      <!-- {{range $i, $v := .Artists}} 
       <img src="{{$v.Image}}"> <br>
-      <a href="/group/{{$v.ID}}" class="label" name="dir" id="dir" action="click">{{$v.Name}}</a><br></option>
-      {{end}}
-    </form>
+      <a href="/group" class="label" name="dir" id="dir" action="click">{{$v.Name}}</a><br></option>
+      {{end}} -->
+    <!-- </form> -->
   </div>
 </body>
 </html>
