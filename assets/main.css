@@ -7,6 +7,7 @@ html {
   body {
     width: 800px;
     margin: 0 auto;
+    /* text-align: center; */
   }
   
   h1, h2 {
@@ -20,10 +21,15 @@ html {
     text-align: center;
   }
   
-  header p {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-align: center;
+  .header {
+    /* font-size: 1.3rem;
+    font-weight: bold; */
+    /* text-align: center; */
+    display: inline-block;
+    margin-top: 15px;
+    padding: 4px;
+    font-size: 14px;
+
   }
   
   /* section styles */
@@ -33,16 +39,43 @@ html {
     float: left;
   }
   
-  section p {
-    margin: 5px 0;
-  }
-  
-  section ul {
-    margin-top: 0;
-  }
-  
   h2 {
     font-size: 2.5rem;
     letter-spacing: -5px;
     margin-bottom: 10px;
+    /* text-align: center; */
   }
+
+  table {
+    width:80%;
+    /* border:1px solid; */
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    /* border-color: rgb(0, 0, 0); */
+    text-align: center;
+    /* margin: 0 auto; */
+  }
+  th {
+    background-color: black;
+    color:#ddd;
+    height:70px;
+  }
+  th, td {
+    border-bottom: 1px solid #ddd;
+  }
+  .wrapper{
+    display: inline-block;
+    font-family: 'Faster One', cursive;
+    font-size: 4rem;
+    text-align: center;
+    text-decoration: none;
+  }
+  .title {
+    text-decoration: none;
+
+    /* display: flex;
+flex-direction: column; */
+text-align: center;
+}
+tr:hover {background-color: rgb(233, 222, 72);}

@@ -15,7 +15,6 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		ErrorHandler(w, 405)
 		return
 	}
-	// fmt.Println(len(All.Artists))
 	switch r.Method {
 	case "GET":
 		temp, err := template.ParseFiles("./templates/home.html")
@@ -31,11 +30,16 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func GroupHandler(w http.ResponseWriter, r *http.Request) {
-	ID := ""
+	id := ""
 	if len(r.URL.Path) > 7 {
-		ID = r.URL.Path[7:]
+		id = r.URL.Path[7:]
 	}
-	if r.URL.Path != "/group/"+ID {
+	if r.URL.Path != "/group/"+id {
+		ErrorHandler(w, 404)
+		return
+	}
+	index, err := strconv.Atoi(id)
+	if err != nil || !(index >= 0 && index < 52) {
 		ErrorHandler(w, 404)
 		return
 	}
@@ -43,31 +47,17 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 		ErrorHandler(w, 405)
 		return
 	}
-	type numb struct {
-		// Index  int
-		Total interface{}
-		// Total struct {
-		// 	ID           int      "json:\"id\""
-		// 	Image        string   "json:\"image\""
-		// 	Name         string   "json:\"name\""
-		// 	Members      []string "json:\"members\""
-		// 	CreationDate int      "json:\"creationDate\""
-		// 	FirstAlbum   string   "json:\"firstAlbum\""
-		// 	Rel          map[string]string
-		// }
-	}
 	switch r.Method {
 	case http.MethodGet:
-		index, _ := strconv.Atoi(ID)
-		if index < 0 && index > 52 {
-			ErrorHandler(w, 400)
-			return
-		}
-
-		// fmt.Print(All.Artists[index].ID)
-
-		artist := &numb{
-			Total: All.Artists[index],
+		index -= 1
+		artist := &Artist{
+			ID:           All.Artists[index].ID,
+			Name:         All.Artists[index].Name,
+			Members:      All.Artists[index].Members,
+			CreationDate: All.Artists[index].CreationDate,
+			FirstAlbum:   All.Artists[index].FirstAlbum,
+			Image:        All.Artists[index].Image,
+			Rel:          All.Artists[index].Rel,
 		}
 		temp, err := template.ParseFiles("./templates/group.html")
 		if err != nil {

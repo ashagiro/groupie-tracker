@@ -5,31 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <link rel="stylesheet" href="/assets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
-  <title>Groupie-Tracker</title>
+  <title>Groupie-Tracker Project</title>
 </head>
 
 <body>
-  {{$Artists := .}}
-  <div class="wrapper"></div>
-  <div class="container">
-    <a href="/" class="title">Groupie Trackers</a> <br> <br>
-    <p>It is working!</p>
-    <!-- <form action="/" method="POST"><br> -->
-      {{.ID}}
-      <br>
-      {{.Name}}
-      <!-- {{range .API.Artists}}
-      {{.Name}}
-      {{end}} -->
-      <!-- {{range .}}
-      <p>{{.index}}</p>
-      {{end}} -->
-      <!-- {{range $i, $v := .Artists}} 
-      <img src="{{$v.Image}}"> <br>
-      <a href="/group" class="label" name="dir" id="dir" action="click">{{$v.Name}}</a><br></option>
-      {{end}} -->
-    <!-- </form> -->
+  <div>
+    <header>
+    </header>
+    <div class="wrapper">
+      <a href="/" class="title">⬅</a>
+     {{.Name}}
+    </div>
+    <!-- <nav id="second">
+      <ul>
+        <li><a href="#members">Members</a></li>
+        <li><a href="#creation">Creation Date</a></li>
+        <li><a href="#album">First Album</a></li>
+        <li><a href="#concerts">Concerts</a></li>
+      </ul>
+    </nav> -->
+    <div id="members" class="container">
+      <img src="{{.Image}}" alt="The image of the group Logo">
+      <h2>Members</h2>
+      <hr noshade size="3">
+      {{range $key, $value := .Members}}
+      <ul>
+        <li>{{$value}}</li>
+      </ul>
+      {{end}}
+    </div>
+    <div id="creation" class="container">
+      <h2>Creation Date</h2>
+      <hr noshade size="3">
+      {{.CreationDate}}
+    </div>
+    <div id="album" class="container">
+      <h2>First Album</h2>
+      <hr noshade size="3">
+     {{.FirstAlbum}}
+    </div>
+   <div id="concerts" class="container">
+      <h2>Concerts</h2>
+       <hr noshade size="3">
+       <table style="width:500px" >
+          <thead>
+           <tr>
+              <th>City-Country</th>
+             <th>Date</th>
+            </tr>
+          </thead>
+          {{range $i, $v := .Rel}}
+          <tbody>
+            <tr>
+             {{range $d, $f := $v}}
+             <td>{{$i}}</td>
+              <td>{{$f}}</td>
+            </tr>
+          </tbody>
+      {{end}}   
+        {{end}}
+       </table>
+        <br>
+        <br>
+    </div>
   </div>
 </body>
 </html>
