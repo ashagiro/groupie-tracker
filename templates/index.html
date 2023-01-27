@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <link rel="stylesheet" href="/assets/home.css">
+  <link rel="stylesheet" href="/assets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
   <title>Groupie Tracker Project</title>
 </head>
@@ -13,17 +13,16 @@
   <header>
     <nav><a href="/" class="title1">Main Page</a> <br> <br></nav>
   </header>
-  <div class="wrapper">
+  <div>
     <h1 class="title">Groupie Tracker</h1>
   </div>
   <div class="gallery">
-      {{$API := .}}
-      {{range $i, $v := .Artists}} 
-      <div class="element">
-      
+    {{$API := .}}
+    {{range $i, $v := .Artists}} 
+    <div class="element">
+      <a href="/group/{{$v.ID}}" class="label" name="dir" id="dir" action="click">
         <img src="{{$v.Image}}"> <br>
-        <a href="/group/{{$v.ID}}" class="label" name="dir" id="dir" action="click">
-          <h3>{{$v.Name}}</h3>
+        <h3>{{$v.Name}}</h3>
       </a><br></option>
     </div>
     {{end}}
