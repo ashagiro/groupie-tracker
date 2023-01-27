@@ -17,7 +17,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	switch r.Method {
 	case "GET":
-		temp, err := template.ParseFiles("./templates/home.html")
+		temp, err := template.ParseFiles("./templates/index.html")
 		if err != nil {
 			ErrorHandler(w, 500)
 			return
@@ -34,7 +34,7 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 	if len(r.URL.Path) > 7 {
 		id = r.URL.Path[7:]
 	}
-	if r.URL.Path != "/group/"+id {
+	if r.URL.Path != "/artist/"+id {
 		ErrorHandler(w, 404)
 		return
 	}
@@ -59,7 +59,7 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 			Image:        All.Artists[index].Image,
 			Rel:          All.Artists[index].Rel,
 		}
-		temp, err := template.ParseFiles("./templates/group.html")
+		temp, err := template.ParseFiles("./templates/artist.html")
 		if err != nil {
 			ErrorHandler(w, 500)
 		}
