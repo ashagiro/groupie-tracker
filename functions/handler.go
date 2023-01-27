@@ -11,7 +11,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		ErrorHandler(w, 404)
 		return
 	}
-	if r.URL.Path == "/" && r.Method != "GET" || r.URL.Path == "artist" && r.Method != "POST" {
+	if r.URL.Path == "/" && r.Method != "GET" {
 		ErrorHandler(w, 405)
 		return
 	}
@@ -34,16 +34,16 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 	if len(r.URL.Path) > 7 {
 		id = r.URL.Path[7:]
 	}
-	if r.URL.Path != "/artist/"+id {
+	if r.URL.Path != "/group/"+id {
 		ErrorHandler(w, 404)
 		return
 	}
 	index, err := strconv.Atoi(id)
-	if err != nil || !(index >= 0 && index < 52) {
+	if err != nil || !(index > 0 && index < len(All.Artists)+1) {
 		ErrorHandler(w, 404)
 		return
 	}
-	if r.URL.Path == "/" && r.Method != "GET" || r.URL.Path == "artist" && r.Method != "POST" {
+	if r.URL.Path == "/group"+id && r.Method != "GET" {
 		ErrorHandler(w, 405)
 		return
 	}
@@ -59,7 +59,7 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 			Image:        All.Artists[index].Image,
 			Rel:          All.Artists[index].Rel,
 		}
-		temp, err := template.ParseFiles("./templates/artist.html")
+		temp, err := template.ParseFiles("./templates/group.html")
 		if err != nil {
 			ErrorHandler(w, 500)
 		}

@@ -1,70 +1,70 @@
 /* || general styles */
 
 html {
-    font-family: 'helvetica neue', helvetica, arial, sans-serif;
-  }
-  
-  body {
-    width: 800px;
-    margin: 0 auto;
-  }
-  
-  h1, h2 {
-    font-family: 'Faster One', cursive;
-  }
-  
-  /* header styles */
-  
-  h1 {
-    font-size: 4rem;
-    text-align: center;
-  }
-  
-  .header {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 4px;
-    font-size: 14px;
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
 
-  }
-  
-  /* section styles */
-  
-  section article {
-    width: 33%;
-    float: left;
-  }
-  
-  h2 {
-    font-size: 2.5rem;
-    letter-spacing: -5px;
-    margin-bottom: 10px;
-  }
+body {
+  width: 800px;
+  margin: 0 auto;
+}
 
-  table {
-    width:80%;
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    text-align: center;
-  }
-  th {
-    background-color: black;
-    color:#ddd;
-    height:70px;
-  }
-  th, td {
-    border-bottom: 1px solid #ddd;
-  }
-  .wrapper{
-    display: inline-block;
-    font-family: 'Faster One', cursive;
-    font-size: 4rem;
-    text-align: center;
-    text-decoration: none;
-  }
-  .title {
-    text-decoration: none;
+h1, h2 {
+  font-family: 'Faster One', cursive;
+}
+
+/* header styles */
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.header {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 4px;
+  font-size: 14px;
+
+}
+
+/* section styles */
+
+section article {
+  width: 33%;
+  float: left;
+}
+
+h2 {
+  font-size: 2.5rem;
+  letter-spacing: -5px;
+  margin-bottom: 10px;
+}
+
+table {
+  width:80%;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  text-align: center;
+}
+th {
+  background-color: black;
+  color:#ddd;
+  height:70px;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+.wrapper{
+  display: inline-block;
+  font-family: 'Faster One', cursive;
+  font-size: 4rem;
+  text-align: center;
+  text-decoration: none;
+}
+.title {
+  text-decoration: none;
 text-align: center;
 }
 tr:hover {background-color: rgb(233, 222, 72);}
