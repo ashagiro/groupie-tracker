@@ -8,11 +8,7 @@ import (
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		ErrorHandler(w, 404)
-		return
-	}
-	if r.URL.Path == "/" && r.Method != "GET" {
-		ErrorHandler(w, 405)
+		ErrorHandler(w, http.StatusNotFound)
 		return
 	}
 	switch r.Method {
@@ -24,7 +20,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		temp.Execute(w, All)
 	default:
-		ErrorHandler(w, 400)
+		ErrorHandler(w, 405)
 		return
 	}
 }
@@ -34,17 +30,13 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 	if len(r.URL.Path) > 7 {
 		id = r.URL.Path[7:]
 	}
-	if r.URL.Path != "/group/"+id {
-		ErrorHandler(w, 404)
-		return
-	}
 	index, err := strconv.Atoi(id)
 	if err != nil || !(index > 0 && index < len(All.Artists)+1) {
 		ErrorHandler(w, 404)
 		return
 	}
-	if r.URL.Path == "/group"+id && r.Method != "GET" {
-		ErrorHandler(w, 405)
+	if r.URL.Path == "/group"+id {
+		ErrorHandler(w, 404)
 		return
 	}
 	switch r.Method {
@@ -71,22 +63,11 @@ func GroupHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ErrorHandler(w http.ResponseWriter, status int) {
-	var title string
-	switch status {
-	case 400:
-		title = "400 Bad Request"
-	case 404:
-		title = "404 Not Found"
-	case 405:
-		title = "405 Method Not Allowed"
-	case 500:
-		title = "500 Internal Server Error"
-	}
 	w.WriteHeader(status)
 	temp, err := template.ParseFiles("./templates/error.html")
 	if err != nil {
 		ErrorHandler(w, 500)
 		return
 	}
-	temp.Execute(w, title)
+	temp.Execute(w, http.StatusText(status))
 }
