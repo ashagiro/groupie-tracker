@@ -1,4 +1,4 @@
-package groupie
+package funcs
 
 type API struct {
 	ID       int

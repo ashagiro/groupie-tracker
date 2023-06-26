@@ -1,0 +1,282 @@
+
+html {
+  font: 112.5%/1.625 -apple-system,'Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+}
+body {
+  background-color: #222831;
+  margin: 0;
+  text-align: center;
+  position:relative;
+  /* display:flex;
+  flex-direction: column; */
+  min-height: 100vh;
+}
+h1 {
+  color:#EEEEEE;
+  font-size: 3.7rem;
+  text-align: center;
+  font-family: 'Monoton', cursive;
+}
+h2 {
+  font-family: 'Faster One', cursive;
+  color: #EEEEEE;
+  font-size: 2.5rem;
+  letter-spacing: -5px;
+  margin-bottom: 10px;
+}
+p {
+  color:white;
+}
+table {
+  color: white;
+  display: table;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 2px;
+  text-align: center;
+  width: 50%;
+}
+footer{
+  margin: none;
+  color:#9aa1ad;
+  position:absolute;
+  bottom: 0px;
+  width:100%;
+  background:#2e2e38;
+  text-align: center;
+  font-size: 16px;
+  padding:5px;
+}
+tr:hover {
+  background-color: rgb(233, 222, 72);
+  color:#222831;
+}
+th {
+  background-color: #00ADB5;
+  color:#ddd;
+  height:70px;
+}
+th, td {
+  border-bottom: 2px solid rgb(211, 206, 206);
+}
+hr {
+  border-top: dashed #00ADB5 4px;
+  border-bottom: none;
+  margin: 100px auto;
+  width: 10%;
+}
+.element {
+  display: inline-block;
+  overflow: hidden;
+  background:#00ADB5  none repeat scroll 0% 0%;
+  border-radius: 0.5rem;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+label{
+  color:#EEEEEE;
+}
+.results{
+  font-size: 1.6rem;
+  color:#f5f5f5;
+  background-color: #3f4652;
+  width:100%;
+  padding:20px
+}
+.element:hover{
+  background:#177477;
+}
+.label{
+  color: #f1f4f5;
+text-align: center;
+text-decoration: none;
+font-family: 'Oswald', sans-serif;
+}
+.link {
+  font-size: 4rem;
+  text-align: center;
+  text-decoration: none;
+  text-align: center;
+  color:#00ADB5;
+}
+.errorStatus {
+  color:#484e57;
+  font-size: 8.0rem;
+  padding:none;
+  margin:0;
+}
+.errorMessage{
+  color:#EEEEEE;
+  font-size:2.0rem;
+}
+.searchbar{
+  position: relative;
+  display: inline;
+  width: 50%;
+}
+.form{
+  margin-bottom: 15px;
+}
+.search-icon {
+  left: 10px;
+  position: absolute;
+  top: 1px;
+  width: 18px;
+}
+
+.clear-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  visibility: hidden;
+  width: 20px;
+}
+.search {
+  background-color: #f5f5f5;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 35px;
+  padding: 3px 25px 3px 30px;
+  outline: 0;
+  width: 40%;
+}
+.search:hover, .search:focus {
+  background-color: white;
+  border: 2.5px solid #00ADB5;
+}
+/*--------------------Find Button---------------------------*/
+.findButton {
+	background-color:#00ADB5;
+	border-radius:0.5rem;
+	display:inline-block;
+	cursor:pointer;
+	color:#fff0ff;
+	font-size:17px;
+	padding:6px 31px;
+	text-decoration:none;
+  border: none;
+}
+.findButton:hover {
+	background-color:#177477;
+}
+.findButton:active {
+	position:relative;
+	top:1px;
+}
+/* 
+--------------------------Color Scheme------------------------------
+
+#393E46 
+#EEEEEE
+#00ADB5 
+#222831 
+https://fonts.google.com/specimen/Monoton
+*/
+
+/*------------------------Loading...-------------------------------*/
+
+.wrapperanimate{
+  width:200px;
+  height:60px;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.circle{
+  width:20px;
+  height:20px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #00ADB5;
+  left:15%;
+  transform-origin: 50%;
+  animation: circle .5s alternate infinite ease;
+}
+
+@keyframes circle{
+  0%{
+      top:60px;
+      height:5px;
+      border-radius: 50px 50px 25px 25px;
+      transform: scaleX(1.7);
+  }
+  40%{
+      height:20px;
+      border-radius: 50%;
+      transform: scaleX(1);
+  }
+  100%{
+      top:0%;
+  }
+}
+.circle:nth-child(2){
+  left:45%;
+  animation-delay: .2s;
+}
+.circle:nth-child(3){
+  left:auto;
+  right:15%;
+  animation-delay: .3s;
+}
+.shadow{
+  width:20px;
+  height:4px;
+  border-radius: 50%;
+  background-color: #222831;
+  position: absolute;
+  top:62px;
+  transform-origin: 50%;
+  z-index: -1;
+  left:15%;
+  filter: blur(1px);
+  animation: shadow .5s alternate infinite ease;
+}
+
+@keyframes shadow{
+  0%{
+      transform: scaleX(1.5);
+  }
+  40%{
+      transform: scaleX(1);
+      opacity: .7;
+  }
+  100%{
+      transform: scaleX(.2);
+      opacity: .4;
+  }
+}
+.shadow:nth-child(4){
+  left: 45%;
+  animation-delay: .2s
+}
+.shadow:nth-child(5){
+  left:auto;
+  right:15%;
+  animation-delay: .3s;
+}
+.wrapperanimate span{
+  position: absolute;
+  top:75px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  letter-spacing: 12px;
+  color: #fff;
+  left:15%;
+}
+
+#loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #393E46;
+  z-index: 99;
+}

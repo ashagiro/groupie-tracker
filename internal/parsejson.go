@@ -1,10 +1,11 @@
-package groupie
+package funcs
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
+	"os"
 )
 
 // main struct
@@ -23,13 +24,13 @@ func ParseJson() {
 func ParseInfo(url string, temp interface{}) {
 	res, err := http.Get(url)
 	if err != nil {
-		fmt.Print(err.Error())
+		log.Print(err.Error())
 		return
 	}
 	text, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Println(err.Error())
+		os.Exit(1)
 	}
 	json.Unmarshal(text, &temp)
 }

@@ -1,0 +1,56 @@
+{{template "base" .}}
+
+{{define "title"}}Artist Page | Groupie Tracker{{end}}
+
+{{define "main"}}
+
+<div>
+    <nav>
+        <a class="link" href="/">⬅</a>
+    </nav>
+    <h2>{{.Name}}</h2>
+    <div id="members" class="container">
+      <img src="{{.Image}}" alt="Group/Artist image">
+      <br>
+      <h2>Members</h2>
+      {{range $key, $value := .Members}}
+        <p>{{$value}}</p>
+      {{end}}
+    </div>
+    <div id="creation" class="container">
+      <hr>
+      <h2>Creation Date</h2>
+      <p>{{.CreationDate}}</p>
+    </div>
+    <div id="album" class="container">
+      <hr>
+      <h2>First Album</h2>
+     <p>{{.FirstAlbum}}</p>
+    </div>
+   <div id="concerts" class="container">
+     <hr>
+      <h2>Concerts</h2>
+       <table >
+          <thead>
+           <tr>
+              <th>City-Country</th>
+             <th>Date</th>
+            </tr>
+          </thead>
+          {{range $i, $v := .Rel}}
+          <tbody>
+            <tr>
+             {{range $d, $f := $v}}
+             <td>{{$i}}</td>
+              <td>{{$f}}</td>
+            </tr>
+          </tbody>
+      {{end}}   
+        {{end}}
+       </table>
+        <br>
+        <br>
+    </div>
+  </div>
+
+{{end}}
